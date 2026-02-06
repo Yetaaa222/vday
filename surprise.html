@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffd1dc 0%, #ef8494 50%, #ffc0cb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* Floating photo backgrounds */
+        .floating-photos {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-photo {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            opacity: 0.4;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-photo-1 {
+            top: 10%;
+            left: 5%;
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .floating-photo-2 {
+            top: 60%;
+            left: 10%;
+            animation: float2 18s ease-in-out infinite;
+        }
+
+        .floating-photo-3 {
+            top: 20%;
+            right: 5%;
+            animation: float3 22s ease-in-out infinite;
+        }
+
+        .floating-photo-4 {
+            top: 65%;
+            right: 8%;
+            animation: float4 19s ease-in-out infinite;
+        }
+
+        .floating-photo-5 {
+            top: 30%;
+            left: 30%;
+            animation: float5 20s ease-in-out infinite;
+        }
+
+        /* Peony decorations */
+        .peony {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .peony-1 {
+            top: 5%;
+            left: 15%;
+            animation: floatPeony1 15s ease-in-out infinite;
+        }
+
+        .peony-2 {
+            top: 40%;
+            left: 3%;
+            animation: floatPeony2 18s ease-in-out infinite;
+        }
+
+        .peony-3 {
+            top: 15%;
+            right: 12%;
+            animation: floatPeony3 16s ease-in-out infinite;
+        }
+
+        .peony-4 {
+            bottom: 10%;
+            right: 15%;
+            animation: floatPeony4 20s ease-in-out infinite;
+        }
+
+        .peony-5 {
+            bottom: 5%;
+            left: 20%;
+            animation: floatPeony1 17s ease-in-out infinite;
+        }
+        .peony-6 {
+            bottom: 50%;
+            left: 50%;
+            animation: floatPeony2 17s ease-in-out infinite;
+        }
+
+        @keyframes floatPeony1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: translate(15px, -10px) rotate(10deg) scale(1.05);
+            }
+
+            50% {
+                transform: translate(-10px, 5px) rotate(-5deg) scale(0.95);
+            }
+
+            75% {
+                transform: translate(10px, 15px) rotate(8deg) scale(1.02);
+            }
+        }
+
+        @keyframes floatPeony2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: translate(-12px, 12px) rotate(-8deg) scale(1.03);
+            }
+
+            50% {
+                transform: translate(8px, -8px) rotate(6deg) scale(0.97);
+            }
+
+            75% {
+                transform: translate(-15px, 10px) rotate(-10deg) scale(1.01);
+            }
+        }
+
+        @keyframes floatPeony3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: translate(-10px, 15px) rotate(7deg) scale(1.04);
+            }
+
+            50% {
+                transform: translate(12px, -12px) rotate(-9deg) scale(0.96);
+            }
+
+            75% {
+                transform: translate(-8px, -5px) rotate(5deg) scale(1.02);
+            }
+        }
+
+        @keyframes floatPeony4 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: translate(10px, -12px) rotate(-6deg) scale(1.01);
+            }
+
+            50% {
+                transform: translate(-15px, 10px) rotate(8deg) scale(0.98);
+            }
+
+            75% {
+                transform: translate(12px, -8px) rotate(-7deg) scale(1.03);
+            }
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(10px, -20px) rotate(5deg);
+            }
+
+            50% {
+                transform: translate(-10px, -10px) rotate(-3deg);
+            }
+
+            75% {
+                transform: translate(15px, 10px) rotate(4deg);
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(-15px, 15px) rotate(-4deg);
+            }
+
+            50% {
+                transform: translate(10px, -15px) rotate(5deg);
+            }
+
+            75% {
+                transform: translate(-10px, 10px) rotate(-3deg);
+            }
+        }
+
+        @keyframes float3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(-12px, 18px) rotate(3deg);
+            }
+
+            50% {
+                transform: translate(8px, -12px) rotate(-4deg);
+            }
+
+            75% {
+                transform: translate(-15px, -8px) rotate(5deg);
+            }
+        }
+
+        @keyframes float4 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(12px, -15px) rotate(-5deg);
+            }
+
+            50% {
+                transform: translate(-8px, 12px) rotate(4deg);
+            }
+
+            75% {
+                transform: translate(10px, -10px) rotate(-3deg);
+            }
+        }
+
+        @keyframes float5 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(12px, -15px) rotate(-5deg);
+            }
+
+            50% {
+                transform: translate(-8px, 12px) rotate(4deg);
+            }
+
+            75% {
+                transform: translate(10px, -10px) rotate(-3deg);
+            }
+        }
+
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: transparent;
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Peony corners on container */
+        .container-peony {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.7;
+        }
+
+        .container-peony.top-left {
+            top: -20px;
+            left: -20px;
+            transform: rotate(-15deg);
+        }
+
+        .container-peony.top-right {
+            top: -20px;
+            right: -20px;
+            transform: rotate(15deg);
+        }
+
+        .container-peony.bottom-left {
+            bottom: -20px;
+            left: -20px;
+            transform: rotate(-25deg);
+        }
+
+        .container-peony.bottom-right {
+            bottom: -20px;
+            right: -20px;
+            transform: rotate(25deg);
+        }
+
+        h1 {
+            color: #d4145a;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(212, 20, 90, 0.1);
+        }
+
+        .hearts {
+            font-size: 2em;
+            margin-bottom: 20px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.05em;
+            line-height: 1.9;
+            margin: 30px 0;
+            padding: 0 10px;
+            text-align: left;
+        }
+
+        .highlight {
+            color: #d4145a;
+            font-weight: bold;
+        }
+
+        .decorative-hearts {
+            font-size: 1.5em;
+            margin: 25px 0;
+            opacity: 0.6;
+        }
+
+        .checkbox-container {
+            margin: 40px 0 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.2em;
+            color: #d4145a;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            accent-color: #d4145a;
+        }
+
+        .checkbox-label {
+            font-weight: bold;
+        }
+
+        .verse {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(212, 20, 90, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #d4145a;
+        }
+
+        .verse-text {
+            font-style: italic;
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .verse-reference {
+            color: #d4145a;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* Heart and peony rain animation */
+        .heart-rain,
+        .peony-rain {
+            position: fixed;
+            top: -50px;
+            font-size: 30px;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        .peony-rain {
+            font-size: 35px;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Music control button */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 20, 90, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            background: rgba(212, 20, 90, 1);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .message {
+                font-size: 0.95em;
+            }
+
+            .floating-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .peony {
+                width: 60px;
+                height: 60px;
+            }
+
+            .container-peony {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating background photos -->
+    <div class="floating-photos">
+        <img src="image1.jpeg" alt="Our Memory 1" class="floating-photo floating-photo-1">
+        <img src="image2.jpeg" alt="Our Memory 2" class="floating-photo floating-photo-2">
+        <img src="image3.jpeg" alt="Our Memory 3" class="floating-photo floating-photo-3">
+        <img src="image4.jpeg" alt="Our Memory 4" class="floating-photo floating-photo-4">
+        <img src="image5.jpeg" alt="Our Memory 5" class="floating-photo floating-photo-5">
+
+        <!-- Floating peonies in background -->
+        <div class="peony peony-1">🌸</div>
+        <div class="peony peony-2">🌸</div>
+        <div class="peony peony-3">🌸</div>
+        <div class="peony peony-4">🌸</div>
+        <div class="peony peony-5">🌸</div>
+        <div class="peony peony-6">🌸</div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button class="music-control" id="musicToggle" title="Toggle Music">🎵</button>
+    
+    <div class="container">
+        <!-- Corner peonies -->
+        <div class="container-peony top-left">🌸</div>
+        <div class="container-peony top-right">🌸</div>
+        <div class="container-peony bottom-left">🌸</div>
+        <div class="container-peony bottom-right">🌸</div>
+        
+        <div class="hearts">💕 💖 💕</div>
+
+        <h1>Will You Be My Valentine?</h1>
+
+        <div class="decorative-hearts">❤️ 🌸 ❤️</div>
+
+        <div class="message">
+            My Mushi,
+            <br><br>
+            Never done this Valentine's thing like this before. But I hear it's a special day and you're a special girl.
+            My special girl.
+
+            You've been my safe space and favourite person to hang around. If the answer to this question is no, I'll
+            just ask again and again:
+
+        </div>
+
+        <div class="decorative-hearts">💕 🌸 💕</div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="valentineCheckbox">
+            <label for="valentineCheckbox" class="checkbox-label">So, will you be my Valentine? ❤️</label>
+        </div>
+
+
+        
+    </div>
+
+    <script>
+        const checkbox = document.getElementById('valentineCheckbox');
+        const music = document.getElementById('backgroundMusic');
+        const musicToggle = document.getElementById('musicToggle');
+
+        // Try to play music when page loads (may be blocked by browser)
+        // Most browsers require user interaction first
+        document.addEventListener('DOMContentLoaded', function () {
+            music.volume = 0.3; // Set volume to 30%
+
+            // Attempt to play (may fail due to browser autoplay policies)
+            music.play().catch(function (error) {
+                console.log("Autoplay prevented. Music will play on first interaction.");
+            });
+        });
+
+        // Play music on any user interaction if it hasn't started
+        document.body.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
+            }
+        }, { once: true });
+
+        // Music toggle button
+        musicToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (music.paused) {
+                music.play();
+                musicToggle.textContent = '🎵';
+            } else {
+                music.pause();
+                musicToggle.textContent = '🔇';
+            }
+        });
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                createHeartRain();
+            }
+        });
+
+        function createHeartRain() {
+            const heartEmojis = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘', '💞'];
+            const peonyEmoji = '🌸';
+            const duration = 4000; // Rain for 4 seconds
+            const interval = 100; // Create elements every 100ms
+
+            let elapsed = 0;
+            const rainInterval = setInterval(() => {
+                if (elapsed >= duration) {
+                    clearInterval(rainInterval);
+                    return;
+                }
+
+                // Create hearts and peonies
+                for (let i = 0; i < 3; i++) {
+                    // Mix of hearts and peonies
+                    if (Math.random() > 0.4) {
+                        createHeart();
+                    } else {
+                        createPeony();
+                    }
+                }
+
+                elapsed += interval;
+            }, interval);
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            const heartEmojis = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘', '💞'];
+
+            heart.className = 'heart-rain';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.style.opacity = Math.random() * 0.5 + 0.5;
+
+            document.body.appendChild(heart);
+
+            // Remove heart after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        function createPeony() {
+            const peony = document.createElement('div');
+
+            peony.className = 'peony-rain';
+            peony.textContent = '🌸';
+            peony.style.left = Math.random() * 100 + '%';
+            peony.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            peony.style.opacity = Math.random() * 0.5 + 0.5;
+
+            document.body.appendChild(peony);
+
+            // Remove peony after animation completes
+            setTimeout(() => {
+                peony.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>
